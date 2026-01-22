@@ -20,16 +20,35 @@ sections.forEach(async section => {
     section.appendChild(app.canvas);
 
     let image = null;
+    let displacementImage = null;
 
     // load the image into a texture
-    const texture = await PIXI.Assets.load(originalImageSrc);
-    image = new PIXI.Sprite(texture);
+    const imageTexture = await PIXI.Assets.load(originalImageSrc);
+    const displacementTexture = await PIXI.Assets.load('../assets/displacement1.jpg');
 
-    image.x = 100;
-    image.y = 100;
+    image = new PIXI.Sprite(imageTexture);
+    displacementImage = PIXI.Sprite.from(displacementTexture);
+
+    image.x = 100 + 450;
+    image.y = 100 + 300;
     image.width = 900;
     image.height = 600;
     image.interactive = true;
+    image.anchor.x = 0.5;
+    image.anchor.y = 0.5;
 
+    const displacementFilter = new PIXI.DisplacementFilter({
+        sprite: displacementImage,
+        scale: 100,
+        padding: 10,
+    });
+
+    image.filters = [displacementFilter];
+
+    // Hide the displacement sprite so it's only used for the filter map
+    displacementImage.visible = false;
+    
     app.stage.addChild(image);
+    app.stage.addChild(displacementImage);
+
 });
