@@ -24,7 +24,7 @@ sections.forEach(async section => {
 
     // load the image into a texture
     const imageTexture = await PIXI.Assets.load(originalImageSrc);
-    const displacementTexture = await PIXI.Assets.load('../assets/displacement1.jpg');
+    const displacementTexture = await PIXI.Assets.load('./assets/displacement1.jpg');
 
     image = new PIXI.Sprite(imageTexture);
     displacementImage = PIXI.Sprite.from(displacementTexture);
@@ -47,7 +47,7 @@ sections.forEach(async section => {
 
     // Hide the displacement sprite so it's only used for the filter map
     displacementImage.visible = false;
-    
+
     app.stage.addChild(image);
     app.stage.addChild(displacementImage);
 
