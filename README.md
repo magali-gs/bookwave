@@ -1,7 +1,10 @@
 # Bookwave: Experimental JavaScript Project
-Bookwave is a creative and experimental web project featuring advanced image filtering effects. With Pixi.js, it uses 2D WebGL to add displacement and RGB split filters to images on both with and without mouse movement.
+Bookwave is a creative and experimental web project featuring advanced image filtering effects. With Pixi.js, it uses 2D WebGL to add displacement and RGB split filters to images with and without mouse movement.
 
-🚀 Features
+![Screen Recording 2026-01-23 at 13 30 22](https://github.com/user-attachments/assets/c3a389e0-2c40-46c6-ac58-5a8c0899c4ea)
+
+
+## 🚀 Features
 - Advanced image filters - Displacement and RGB split effects powered by Pixi.js
 - Mouse interactivity - Real-time filter animation triggered by mouse movement
 - WebGL rendering - High-performance 2D graphics using WebGL
