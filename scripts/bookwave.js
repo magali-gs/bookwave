@@ -37,6 +37,11 @@ sections.forEach(async section => {
     image.anchor.x = 0.5;
     image.anchor.y = 0.5;
 
+    displacementImage.width = 300;
+    displacementImage.height = 300;
+    // Set wrap mode to REPEAT so the displacement map wraps around
+    displacementImage.texture.baseTexture.wrapMode = PIXI.WRAP_MODES.REPEAT;
+
     const displacementFilter = new PIXI.DisplacementFilter({
         sprite: displacementImage,
         scale: 100,
@@ -45,10 +50,11 @@ sections.forEach(async section => {
 
     image.filters = [displacementFilter];
 
-    // Hide the displacement sprite so it's only used for the filter map
-    displacementImage.visible = false;
-
     app.stage.addChild(image);
     app.stage.addChild(displacementImage);
 
+    app.ticker.add(() => {
+        displacementImage.x += 1;
+        displacementImage.y += 1;
+    });
 });
